@@ -44,7 +44,8 @@ var global = {
     	exclude: [
     		"alibaba",
     		"taobao",
-    		"github"
+    		"github",
+    		"baidu"
     	]
 }
 
@@ -69,7 +70,7 @@ function clearFun(global){
     	//简单的广告智能预测	
     	// $("iframe").hide();
 	$("*[id*='ad']").not("*[id*='ead']").not("*[id*='radius']").not("*[id*='add']").hide();
-	$("*[class*='ad']").not("*[class*='head']").not("*[class*='radius']").not("*[id*='add']").remove();
+	$("*[class*='ad']").not("*[class*='ead']").not("*[class*='radius']").not("*[class*='add']").remove();
 	$("*[id*='cproIframe']").remove();
 	$("*[class*='cproIframe]").remove();
 	if($("b:contains('赞助商')").length){
