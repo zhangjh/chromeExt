@@ -69,8 +69,8 @@ function clearFun(global){
 
     	//简单的广告智能预测	
     	// $("iframe").hide();
-	$("*[id*='ad']").not("*[id*='ead']").not("*[id*='radius']").not("*[id*='add']").hide();
-	$("*[class*='ad']").not("*[class*='ead']").not("*[class*='radius']").not("*[class*='add']").remove();
+	// $("*[id*='ad']").not("*[id*='ead']").not("*[id*='radius']").not("*[id*='add']").hide();
+	// $("*[class*='ad']").not("*[class*='ead']").not("*[class*='radius']").not("*[class*='add']").hide();
 	$("*[id*='cproIframe']").remove();
 	$("*[class*='cproIframe]").remove();
 	if($("b:contains('赞助商')").length){
@@ -92,12 +92,12 @@ function genExp(arr){
 }
 
 (function clearAd (argument) {
-    	$(document).ready(function(){
-    		var curUrl = window.location.href;
+	window.onload = function (){
+		var curUrl = window.location.href;
     		var regExp = genExp(global.exclude);
     		
     		if(!regExp.test(curUrl)){
     			clearFun(global);
     		}
-	});
+	};
 })();
