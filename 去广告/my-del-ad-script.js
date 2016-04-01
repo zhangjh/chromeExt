@@ -25,6 +25,7 @@ var global = {
 	    	"v6_pl_rightmod_noticeboard",
 	    	"v6_pl_content_setskin",
 	    	"v6_pl_rightmod_myinfo",
+            "v6_pl_content_biztips",
 	    	//baidu
 	    	"5001",
 	    	"5002"
