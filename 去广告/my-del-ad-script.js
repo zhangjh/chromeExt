@@ -71,12 +71,18 @@ function clearFun(global){
 	//微博推荐信息流移除
 	$("*[feedtype='ad']").remove();
 
-    	//简单的广告智能预测	
-    	// $("iframe").hide();
-	$("*[id*='ad']").not("*[id*='ead']").not("*[id*='radius']").not("*[id*='add']").hide();
-	$("*[class*='ad']").not("*[class*='ead']").not("*[class*='radius']").not("*[class*='add']").hide();
-	$("*[id*='cproIframe']").remove();
-	$("*[class*='cproIframe]").remove();
+	//简单的广告智能预测 (元素包含ad)
+	// $("iframe").hide();
+	var eles = $("*[id*='ad'],*[class*='id']");
+
+	eles.each(function(i,ele){
+		var idClass = $(ele).attr("id") || $(ele).attr("class");
+		if(/^[a-zA-Z]ad || cproIframe/i.test(idClass)){
+			$(ele).hide();
+		}
+	});
+
+
 	if($("b:contains('赞助商')").length){
 		$("b:contains('赞助商')").parent().hide();
 	}
