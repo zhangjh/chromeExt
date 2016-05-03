@@ -4,18 +4,19 @@
     "version": "1.0.0",
     "description": "Fuck the 黑心骗子莆田系医院！",
     "permissions": [
-        "http://*/"
+        "http://*/","notifications"
     ],
     "icons": {
-        "48": "fuck.png",
-        "128": "fuck.png"
+        "48": "./src/fuck.png",
+        "128": "./src/fuck.png"
     },
     "browser_action": {
-        "default_icon": "fuck.png"
+        "default_icon": "./src/fuck.png",
+        "default_popup": "popup.html"
     },
     "content_scripts": [{
         "run_at":"document_end",
-        "matches": ["*"],
-        "js": ["jquery.min.js","fuck.js"]
+        "matches": ["http://*/*","https://*/*"],
+        "js": ["./js/check.js"]
     }]
 }

@@ -3,10 +3,96 @@
 <head>
 	<meta charset="UTF-8">
 	<title>黑心骗子莆田系医院检测器</title>
-	<script type="text/javascript" src="./jquery.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
 	<style type="text/css">
+        body {
+            min-width: 300px;
+            min-height: 400px;
+        }
+
+        #filter {
+            width: 300px;
+            margin-left: 50px;
+            /* margin-right: 20px; */
+        }
+
+        #filter select {
+            width: 80px;
+            height: 30px;
+            border-radius: 6px;
+            margin: 10px 5px;
+            padding-left: 20px;
+        }
+
+        #filter button {
+            height: 30px;
+            border-radius: 6px;
+            width: 60px;
+        }
+
+        #content {
+            border: 1px solid darkcyan;
+            border-radius: 4px;
+            min-height: 300px;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        p {
+            text-align: left;
+            font-size: larger;
+            color: black;
+            padding: 0;
+            margin: 5px;
+            margin-left: 80px;
+        }
 	</style>
 </head>
 <body>
+    <div id="filter">
+        <select id="province">
+            <option value="北京">北京</option>
+            <option value="浙江">浙江</option>
+            <option value="上海">上海</option>
+            <option value="天津">天津</option>
+            <option value="重庆">重庆</option>
+            <option value="河北">河北</option>
+            <option value="山西">山西</option>
+            <option value="内蒙">内蒙</option>
+            <option value="辽宁">辽宁</option>
+            <option value="吉林">吉林</option>
+            <option value="黑龙江">黑龙江</option>
+            <option value="江苏">江苏</option>
+            <option value="安徽">安徽</option>
+            <option value="福建">福建</option>
+            <option value="江西">江西</option>
+            <option value="山东">山东</option>
+            <option value="河南">河南</option>
+            <option value="湖北">湖北</option>
+            <option value="湖南">湖南</option>
+            <option value="广东">广东</option>
+            <option value="广西">广西</option>
+            <option value="海南">海南</option>
+            <option value="四川">四川</option>
+            <option value="贵州">贵州</option>
+            <option value="云南">云南</option>
+            <option value="西藏">西藏</option>
+            <option value="陕西">陕西</option>
+            <option value="甘肃">甘肃</option>
+            <option value="青海">青海</option>
+            <option value="宁夏">宁夏</option>
+            <option value="新疆">新疆</option>
+        </select>
+        <select id="city">
+            <option value="北京">北京</option>
+        </select>
+        <button>查询</button>
+    </div>
+
+    <div id="content">
+        <p>xxx男科医院</p>
+    </div>
 </body>
+<script src="./js/getHospital.js"></script>
 </html>
