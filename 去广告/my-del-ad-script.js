@@ -77,7 +77,7 @@ function clearFun(global){
 
 	eles.each(function(i,ele){
 		var idClass = $(ele).attr("id") || $(ele).attr("class");
-		if(/^[a-zA-Z]ad | cproIframe/i.test(idClass)){
+		if(/[^a-zA-Z]ad/i.test(idClass) || /cproIframe/.test(idClass)){
 			$(ele).hide();
 		}
 	});
