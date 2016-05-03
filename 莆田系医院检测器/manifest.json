@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "无良黑心骗子莆田系医院检测器",
+    "version": "1.0.0",
+    "description": "Fuck the 黑心骗子莆田系医院！",
+    "permissions": [
+        "http://*/"
+    ],
+    "icons": {
+        "48": "fuck.png",
+        "128": "fuck.png"
+    },
+    "browser_action": {
+        "default_icon": "fuck.png"
+    },
+    "content_scripts": [{
+        "run_at":"document_end",
+        "matches": ["*"],
+        "js": ["jquery.min.js","fuck.js"]
+    }]
+}
