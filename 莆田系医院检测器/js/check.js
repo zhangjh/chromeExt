@@ -5,7 +5,7 @@ var blackHeartedPattern = new RegExp(pattern);
 console.log(blackHeartedPattern);
 console.log(title);
 
-if(blackHeartedPattern.test(title)){
+if(/医院/.test(title) && blackHeartedPattern.test(title)){
 	console.log("true");
 	alert("你正访问的疑似莆田系黑心医院网站，谨防受骗！");
 	new Notification("Warning:",{
