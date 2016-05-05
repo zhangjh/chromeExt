@@ -9,7 +9,7 @@ if(/医院/.test(title) && blackHeartedPattern.test(title)){
 	console.log("true");
 	alert("你正访问的疑似莆田系黑心医院网站，谨防受骗！");
 	new Notification("Warning:",{
-		icon: "fuck.png",
-		body: "你正访问的疑似莆田系黑心医院网站，谨防受骗！"
+		icon: "./src/fuck.png",
+		body: "你正访问疑似莆田系黑心医院网站，谨防受骗！"
 	});
 }
