@@ -82,6 +82,7 @@ function clearFun(global){
 		}
 	});
 
+	$("*[id*='BAIDU_SSP']").hide();
 
 	if($("b:contains('赞助商')").length){
 		$("b:contains('赞助商')").parent().hide();
