@@ -35,3 +35,7 @@
 如果不慎访问了莆田系医院网站，插件会有告警提示：
 
 ![](http://ww4.sinaimg.cn/mw690/62d95157gw1f3inj6gcexj20e505n3ys.jpg)
+
+更新：
+增加了页面级弹框，弹出告警提示，如图：
+![](http://ww1.sinaimg.cn/mw690/62d95157gw1f3kgyw8ix7j20rt0gsq69.jpg)
