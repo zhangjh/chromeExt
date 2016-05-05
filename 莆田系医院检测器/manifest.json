@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "无良黑心骗子莆田系医院检测器",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Fuck the 黑心骗子莆田系医院！",
     "permissions": [
         "notifications"
