@@ -17,6 +17,6 @@
     "content_scripts": [{
         "run_at":"document_end",
         "matches": ["http://*/*","https://*/*"],
-        "js": ["./js/check.js"]
+        "js": ["./js/jquery.min.js","./js/check.js"]
     }]
 }
