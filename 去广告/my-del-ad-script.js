@@ -82,8 +82,13 @@ function clearFun(global){
 		}
 	});
 
+	//搜索引擎广告联盟
 	$("*[id*='BAIDU_SSP']").hide();
 	$("*[class*='adsbygoogle']").hide();
+	$("iframe[src*='baidu']").hide();
+	$("iframe[src*='google']").hide();
+	$("iframe[src*='sogou']").hide();
+
 
 	if($("b:contains('赞助商')").length){
 		$("b:contains('赞助商')").parent().hide();
