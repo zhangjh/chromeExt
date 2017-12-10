@@ -17,7 +17,7 @@ var global = {
 	    	"r2",
 	    	"r3",
 	    	//微博
-	    	"v6_pl_content_biztips",
+	    /*	"v6_pl_content_biztips",
 	    	"v6_pl_rightmod_rank",
 	    	"v6_trustPagelet_recom_member",
 	    	"v6_pl_rightmod_recominfo",
@@ -26,7 +26,8 @@ var global = {
 	    	"v6_pl_content_setskin",
 	    	"v6_pl_rightmod_myinfo",
             "v6_pl_content_biztips",
-	    	//baidu
+	    */
+			//baidu
 	    	"5001",
 	    	"5002"
     	],
@@ -111,10 +112,25 @@ function genExp(arr){
 (function clearAd (argument) {
 	window.onload = function (){
 		var curUrl = window.location.href;
-    		var regExp = genExp(global.exclude);
+		var regExp = genExp(global.exclude);
     		
-    		if(!regExp.test(curUrl)){
-    			clearFun(global);
-    		}
+		if(!regExp.test(curUrl)){
+			clearFun(global);
+		}
+		removeAdOfwb();
+		setInterval(removeAdOfwb,5000);
 	};
+
+	// 针对微博
+	function removeAdOfwb(){
+		$("[ad-data]").remove();
+		$("[feedtype='ad']").remove();
+		var rightEles = $(".WB_main_r > *");
+		rightEles.each(function(index,ele){
+			if(index > 1){
+				ele.remove();
+			}
+		});
+	}
+	
 })();
