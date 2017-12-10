@@ -117,8 +117,10 @@ function genExp(arr){
 		if(!regExp.test(curUrl)){
 			clearFun(global);
 		}
-		removeAdOfwb();
-		setInterval(removeAdOfwb,5000);
+		if(/weibo/.test(curUrl)){
+			removeAdOfwb();
+			setInterval(removeAdOfwb,5000);
+		}
 	};
 
 	// 针对微博
