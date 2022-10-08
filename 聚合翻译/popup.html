@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>聚合翻译</title>
+		<link rel="stylesheet" type="text/css" href="popup_css.css">
+	</head>
+	<body class="content-wrap">
+		<div class="content">
+			<div id="search-bar">
+				<input type="text" name="text-input" id="text-input" autofocus="">
+				<select>
+					<option value="1">百度</option>
+					<option value="2">谷歌</option>
+					<option value="3">Bing</option>
+					<option value="4">有道</option>
+				</select>
+				<button class="search-btn" id="translate-btn">翻译</button>
+				<!--			<div id="buttons">-->
+				<!--				<a class="gtx-a" id="translate-page" href="">翻译此页面</a>-->
+				<!--				<a class="gtx-a" id="more" target="_blank" style="margin-left: 32px; display: none;" href=""></a>-->
+				<!--			</div>-->
+			</div>
+			<div class="translate-content" style="display: none">
+				<div id="new-translation">返回</div>
+				<div id="translation" style="display: inline;"></div>
+			</div>
+		</div>
+
+		<!--footer class="gtx-footer">
+			<div id="autoOption"></div>
+			© <span id="year">2015</span> Google -
+			<a class="gtx-a" id="options-link" target="_blank" href="options.html">扩展程序选项</a> -
+			<a class="gtx-a" id="translate-link" target="_blank" href="https://translate.google.com/?source=gtx">Google 翻译</a>
+		</footer-->
+
+		<script src="jquery.min.js"></script>
+		<script src="popup.js"></script>
+	</body></html>
