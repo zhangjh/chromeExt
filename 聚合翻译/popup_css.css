@@ -1,0 +1,68 @@
+body {
+    font-size: 15px;
+    line-height: 15px;
+    margin: 10px;
+    padding: 5px;
+}
+
+div {
+    margin: 5px;
+}
+
+.content-wrap {
+    min-width: 400px;
+    min-height: 80px;
+}
+
+.content {
+    margin: 0 auto;
+}
+
+#text-input {
+    width: 250px;
+    height: 25px;
+    display: inline;
+}
+
+select {
+    height: 25px;
+}
+
+.search-btn {
+    cursor: pointer;
+    width: 80px;
+    height: 25px;
+    display: inline;
+    color: white;
+    background-color: #3b93ff;
+    background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+    border: none;
+    border-radius: 2px;
+}
+
+#new-translation {
+    cursor: pointer;
+    background-size: 90%;
+    float: right;
+    color: #3b93ff;
+}
+
+.origin-lang {
+    color: #4285f4;
+    font-size: larger;
+    padding: 5px;
+}
+
+.target-lang {
+    color: #4285f4;
+    font-size: larger;
+    padding: 5px;
+}
+
+.origin-text {
+    padding: 5px;
+}
+
+.target-text {
+    padding: 5px;
+}
