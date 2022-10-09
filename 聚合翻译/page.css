@@ -9,8 +9,9 @@ div {
     margin: 5px;
 }
 
-.content-wrap {
+.trans-content-wrap {
     min-width: 400px;
+    max-width: 500px;
     min-height: 80px;
 }
 
