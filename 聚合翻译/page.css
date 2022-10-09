@@ -25,8 +25,12 @@ div {
     display: inline;
 }
 
-select {
+#lang-select {
+    max-width: unset;
+    width: 50px;
     height: 25px;
+    margin: 0;
+    padding: 0;
 }
 
 .search-btn {
@@ -48,22 +52,12 @@ select {
     color: #3b93ff;
 }
 
-.origin-lang {
+.origin-lang, .target-lang {
     color: #4285f4;
     font-size: larger;
     padding: 5px;
 }
 
-.target-lang {
-    color: #4285f4;
-    font-size: larger;
-    padding: 5px;
-}
-
-.origin-text {
-    padding: 5px;
-}
-
-.target-text {
+.origin-text, .target-text {
     padding: 5px;
 }
