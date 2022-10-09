@@ -45,7 +45,9 @@ function appendHtml(x, y) {
         selectedTransCb(e.target.value, x, y);
     });
     // 默认使用谷歌翻译
-    translate("2", window.getSelection().toString().trim(), null, null, selectedTransCb("2", x, y));
+    translate("2", window.getSelection().toString().trim(), null, null, function () {
+        selectedTransCb("2", x, y)
+    });
 }
 
 // 选中划线翻译的回调函数
