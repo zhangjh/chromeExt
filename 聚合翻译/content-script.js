@@ -125,7 +125,9 @@ function showTransContent(ret, x, y) {
         if(ret.phonetic) {
             html += `<div class="target-text">音标: ${ret.phonetic}</div>`;
         }
-        html += `<div class="target-text">${ret.explains}</div>`;
+        for(let item of ret.explains) {
+            html += `<div class="target-text">${item}</div>`;
+        }
     } else {
         html += `<div class="target-text">${ret}</div>`;
     }
