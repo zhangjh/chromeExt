@@ -27,7 +27,7 @@ function initLangs() {
         // 获取语种列表存入本地缓存
         // baidu
         $.ajax({
-            url: "http://translate.favlink.cn/baidu/lang",
+            url: "https://translate.favlink.cn/baidu/lang",
             success: function(ret) {
                 console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.baidu", JSON.stringify(ret.data));
@@ -35,7 +35,7 @@ function initLangs() {
         });
         // google
         $.ajax({
-            url: "http://translate.favlink.cn/google/lang",
+            url: "https://translate.favlink.cn/google/lang",
             success: function(ret) {
                 console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.google", JSON.stringify(ret.data));
@@ -43,7 +43,7 @@ function initLangs() {
         });
         // bing
         $.ajax({
-            url: "http://translate.favlink.cn/bing/lang",
+            url: "https://translate.favlink.cn/bing/lang",
             success: function(ret) {
                 console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.bing", JSON.stringify(ret.data));
@@ -51,7 +51,7 @@ function initLangs() {
         });
         // youdao
         $.ajax({
-            url: "http://translate.favlink.cn/youdao/lang",
+            url: "https://translate.favlink.cn/youdao/lang",
             success: function(ret) {
                 console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.youdao", JSON.stringify(ret.data));

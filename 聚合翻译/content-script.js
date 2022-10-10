@@ -2,10 +2,9 @@
 (function () {
 
     $("body").on("mouseup", function(e) {
-        mouseupFlag = true;
         let selection = window.getSelection().toString().trim();
         if(selection && selection.length < 250) {
-            if($("#float-icon").length == 0) {
+            if($("#float-icon").length === 0) {
                 let x = e.pageX - 13;
                 let y = e.pageY + 15;
                 appendHtml(x, y);
