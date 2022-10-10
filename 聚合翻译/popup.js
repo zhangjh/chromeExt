@@ -96,10 +96,11 @@ function translate(type, text, from, to) {
                 <div class="origin-text">${text}</div>
                 <div class="target-lang">目标语种: ${targetLang}</div>
              `;
-             if(ret.data.errorCode && type === "4") {
-                 html += `
-                    <div class="target-text">${ret.data.translation}</div>
-                 `;
+             if(ret.data.explains && type === "4") {
+                 if(ret.data.phonetic) {
+                     html += `<div class="target-text">音标: ${ret.data.phonetic}</div>`;
+                 }
+                 html += `<div class="target-text">${ret.data.explains}</div>`;
              } else {
                  html += `<div class="target-text">${ret.data}</div>`;
              }

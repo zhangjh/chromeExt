@@ -121,8 +121,11 @@ function showTransContent(ret, x, y) {
         <div class="origin-text">${globalConfig.text}</div>
         <div class="target-lang">目标语种: ${globalConfig.targetLang}</div>
      `;
-    if(ret.errorCode && globalConfig.type === "4") {
-        html += `<div class="target-text">${ret.translation}</div>`;
+    if(ret.explains && globalConfig.type === "4") {
+        if(ret.phonetic) {
+            html += `<div class="target-text">音标: ${ret.phonetic}</div>`;
+        }
+        html += `<div class="target-text">${ret.explains}</div>`;
     } else {
         html += `<div class="target-text">${ret}</div>`;
     }
