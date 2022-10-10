@@ -50,8 +50,8 @@ function translate(type, text, from, to) {
         success: function(ret) {
              $("#search-bar").hide();
              $(".translate-content").show();
-             const originLang = window.langsCode2Desc(typeName, from);
-             const targetLang = window.langsCode2Desc(typeName, to);
+             const originLang = isCharacter ? "中文" : "英文";
+             const targetLang = isCharacter ? "英文" : "中文";
              // 有道的特殊处理一下
              let html = `
                 <div class="origin-lang">源语种: ${originLang}</div>
