@@ -40,13 +40,16 @@ function appendHtml(x, y) {
     transIconHtmlDiv.innerHTML = transIconHtml;
     document.querySelector("body").appendChild(transIconHtmlDiv);
 
-    $("#lang-select").on("change", function(e) {
+    // $("#lang-select").on("change", function(e) {
+    //     selectedTransCb(e.target.value, x, y);
+    // });
+    $("#lang-select").on("click", function(e) {
         selectedTransCb(e.target.value, x, y);
     });
-    // 默认使用谷歌翻译
-    translate("2", window.getSelection().toString().trim(), null, null, function () {
-        selectedTransCb("2", x, y)
-    });
+    // 默认使用谷歌翻译，避免仅鼠标选中时并不需要翻译也自动翻译了，不自动调用
+    // translate("2", window.getSelection().toString().trim(), null, null, function () {
+    //     selectedTransCb("2", x, y)
+    // });
 }
 
 // 选中划线翻译的回调函数
