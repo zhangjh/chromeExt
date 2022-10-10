@@ -8,12 +8,12 @@
 ## 功能使用演示
 - 点击扩展按钮主动翻译
 
-  <img src="https://user-images.githubusercontent.com/3371714/194790581-6f4aeda2-816e-438f-bcea-e0447c32ecc7.jpg" width="400" />
-  <img src="https://user-images.githubusercontent.com/3371714/194790371-4bdfa8f4-13db-4042-92e8-25a03cdba591.jpg" width="400" />
+  <img src="https://user-images.githubusercontent.com/3371714/194800001-f1c84c75-504b-4d23-b146-d56563362bfc.jpg" width="400" />
+  <img src="https://user-images.githubusercontent.com/3371714/194800018-2162466a-ee37-4afa-a8e3-87d024f2090f.jpg" width="400" />
 
 - 页面划线翻译
 
-  <img src="https://user-images.githubusercontent.com/3371714/194790407-c595fa0b-a9a9-4005-abc7-c3b064b7e612.jpg" width="500" />
+  <img src="https://user-images.githubusercontent.com/3371714/194797949-5ffabcaf-bc81-40d3-b660-3b66310d0f84.jpg" width="500" />
 - 右键菜单跳转网站翻译
   暂未单独制作承载落地页，仅引导跳转到百度翻译
   
