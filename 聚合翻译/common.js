@@ -91,3 +91,24 @@ window.initLangs = function() {
         });
     }
 }
+
+// url, cb
+window.commonTranslate = function (url, cb) {
+    $.ajax({
+        url: url,
+        success: function (ret) {
+            cb(ret);
+        }
+    });
+}
+
+// 拼接应用程序id
+window.appendAppInfo = function (type, url) {
+    const appId = localStorage.getItem(typeMapping(type) + "_appId");
+    const appSecret = localStorage.getItem(typeMapping(type) + "_appSecret");
+    if(appId && appSecret) {
+        url += "&appId=" + appId;
+        url += "&appSecret=" + appSecret;
+    }
+    return url;
+}

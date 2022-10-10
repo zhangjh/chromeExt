@@ -45,33 +45,31 @@ function translate(type, text, from, to) {
         }
     }
     url += "&to=" + to;
-    $.ajax({
-        url: url,
-        success: function(ret) {
-             $("#search-bar").hide();
-             $(".translate-content").show();
-             const originLang = isCharacter ? "中文" : "英文";
-             const targetLang = isCharacter ? "英文" : "中文";
-             // 有道的特殊处理一下
-             let html = `
+    url = window.appendAppInfo(type, url);
+    window.commonTranslate(url, function(ret) {
+        $("#search-bar").hide();
+        $(".translate-content").show();
+        const originLang = isCharacter ? "中文" : "英文";
+        const targetLang = isCharacter ? "英文" : "中文";
+        // 有道的特殊处理一下
+        let html = `
                 <div class="origin-lang">源语种: ${originLang}</div>
                 <div class="origin-text">${text}</div>
                 <div class="target-lang">目标语种: ${targetLang}</div>
              `;
-             if(!ret.data) {
-                 return;
-             }
-             if(ret.data.explains && type === "4") {
-                 if(ret.data.phonetic) {
-                     html += `<div class="target-text">音标: <span class="red">[${ret.data.phonetic}]</span></div>`;
-                 }
-                 for(let item of ret.data.explains) {
-                     html += `<div class="target-text">${item}</div>`;
-                 }
-             } else {
-                 html += `<div class="target-text">${ret.data}</div>`;
-             }
-             $("#translation").html(html);
+        if(!ret.data) {
+            return;
         }
+        if(ret.data.explains && type === "4") {
+            if(ret.data.phonetic) {
+                html += `<div class="target-text">音标: <span class="red">[${ret.data.phonetic}]</span></div>`;
+            }
+            for(let item of ret.data.explains) {
+                html += `<div class="target-text">${item}</div>`;
+            }
+        } else {
+            html += `<div class="target-text">${ret.data}</div>`;
+        }
+        $("#translation").html(html);
     });
 }
