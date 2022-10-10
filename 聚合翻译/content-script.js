@@ -125,13 +125,20 @@ function showTransContent(ret, x, y) {
     if(!ret) {
         return;
     }
-    if(ret.explains && globalConfig.type === "4") {
-        if(ret.phonetic) {
-            html += `<div class="target-text">音标: <span class="red">[${ret.phonetic}]</span></div>`;
+    if(globalConfig.type === "4") {
+        if(ret.explains) {
+            if(ret.phonetic) {
+                html += `<div class="target-text">音标: <span class="red">[${ret.phonetic}]</span></div>`;
+            }
+            for(let item of ret.explains) {
+                html += `<div class="target-text">${item}</div>`;
+            }
+        } else if(ret.translation) {
+            for(let item of ret.translation) {
+                html += `<div class="target-text">${item}</div>`;
+            }
         }
-        for(let item of ret.explains) {
-            html += `<div class="target-text">${item}</div>`;
-        }
+
     } else {
         html += `<div class="target-text">${ret}</div>`;
     }

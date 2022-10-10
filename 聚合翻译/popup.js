@@ -60,12 +60,18 @@ function translate(type, text, from, to) {
         if(!ret.data) {
             return;
         }
-        if(ret.data.explains && type === "4") {
-            if(ret.data.phonetic) {
-                html += `<div class="target-text">音标: <span class="red">[${ret.data.phonetic}]</span></div>`;
-            }
-            for(let item of ret.data.explains) {
-                html += `<div class="target-text">${item}</div>`;
+        if(type === "4") {
+            if(ret.data.explains) {
+                if(ret.data.phonetic) {
+                    html += `<div class="target-text">音标: <span class="red">[${ret.data.phonetic}]</span></div>`;
+                }
+                for(let item of ret.data.explains) {
+                    html += `<div class="target-text">${item}</div>`;
+                }
+            } else if(ret.data.translation) {
+                for(let item of ret.data.translation) {
+                    html += `<div class="target-text">${item}</div>`;
+                }
             }
         } else {
             html += `<div class="target-text">${ret.data}</div>`;
