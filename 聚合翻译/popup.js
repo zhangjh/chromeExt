@@ -1,5 +1,5 @@
 (function () {
-    initLangs();
+    window.initLangs();
 
     let translateBtn = $("#translate-btn");
     translateBtn.on("click", function() {
@@ -21,44 +21,6 @@
         $("#search-bar").show();
     });
 })();
-
-function initLangs() {
-    if(!window.localStorage.langs) {
-        // 获取语种列表存入本地缓存
-        // baidu
-        $.ajax({
-            url: "https://translate.favlink.cn/baidu/lang",
-            success: function(ret) {
-                console.log(JSON.stringify(ret.data));
-                localStorage.setItem("langs.baidu", JSON.stringify(ret.data));
-            }
-        });
-        // google
-        $.ajax({
-            url: "https://translate.favlink.cn/google/lang",
-            success: function(ret) {
-                console.log(JSON.stringify(ret.data));
-                localStorage.setItem("langs.google", JSON.stringify(ret.data));
-            }
-        });
-        // bing
-        $.ajax({
-            url: "https://translate.favlink.cn/bing/lang",
-            success: function(ret) {
-                console.log(JSON.stringify(ret.data));
-                localStorage.setItem("langs.bing", JSON.stringify(ret.data));
-            }
-        });
-        // youdao
-        $.ajax({
-            url: "https://translate.favlink.cn/youdao/lang",
-            success: function(ret) {
-                console.log(JSON.stringify(ret.data));
-                localStorage.setItem("langs.youdao", JSON.stringify(ret.data));
-            }
-        });
-    }
-}
 
 function translate(type, text, from, to) {
     let url = "https://translate.favlink.cn/";

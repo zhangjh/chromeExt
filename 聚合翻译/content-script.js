@@ -62,7 +62,7 @@ function appendHtml(x, y) {
 // 选中划线翻译的回调函数
 function selectedTransCb(type, x, y) {
     const selectionText = window.getSelection().toString().trim();
-    translate(type, selectionText, null, null, function(ret) {
+    translate(type, selectionText, undefined, undefined, function(ret) {
         if(ret.success) {
             showTransContent(ret.data, x + 100, y);
         }

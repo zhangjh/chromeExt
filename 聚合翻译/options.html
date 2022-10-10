@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>聚合翻译选项</title>
+        <link rel="stylesheet" type="text/css" href="options.css">
+    </head>
+    <body>
+        <div class="content-wrap">
+            <h1>
+                <img src="imgs/icon_19.png" />
+                <div id="options-title-heading">聚合翻译扩展程序选项</div>
+            </h1>
+            <div class="option-row">
+                <div id="translate-engine" class="option-name">翻译引擎:</div>
+                <div id="engine-options" class="option-value">
+                    <select>
+                        <option value="1">百度</option>
+                        <option value="2" selected>谷歌</option>
+                        <option value="3">Bing</option>
+                        <option value="4">有道</option>
+                    </select>
+                </div>
+                <div id="engine-set">配置...</div>
+                <div class="engine-set-panel">
+                    <div id="panel-title"></div>
+                    <div id="panel-appId">
+                        <div>应用程序id:</div>
+                        <input />
+                    </div>
+                    <div id="panel-appSecret">
+                        <div>应用程序密钥:</div>
+                        <input type="password" />
+                    </div>
+                    <div id="panel-tips">
+                        <a href="">👉🏻 没有id和密钥？申请一个!</a>
+                    </div>
+                    <div class="panel-btn-wrap">
+                        <button id="panel-save-btn" class="button">保存</button>
+                        <button id="panel-cancel-btn" class="button">取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="option-row">
+                <div id="main-lang" class="option-name">主要语言:</div>
+                <div id="lang-options" class="option-value">
+                    <select>
+                        <!--options here-->
+                    </select>
+                </div>
+            </div>
+            <div class="option-row buttons">
+                <button id="save-btn">保存</button>
+            </div>
+            <div id="msg-tips"></div>
+        </div>
+        <script src="jquery.min.js"></script>
+        <script src="common.js"></script>
+        <script src="options.js"></script>
+    </body>
+</html>

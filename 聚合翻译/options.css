@@ -1,0 +1,148 @@
+
+body {
+    background-color: #eee;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+}
+
+.content-wrap {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 40px auto 20px;
+    padding: 50px;
+    width: 650px;
+}
+
+h1 {
+    color: #333333;
+    font-size: 1.5em;
+    margin: 0.7em 0;
+    text-align: center;
+}
+
+h1 image, h1 div {
+    display: inline;
+}
+
+.option-row {
+    display: table-row;
+    position: relative;
+}
+
+.option-name {
+    display: table-cell;
+    font-weight: bold;
+    margin-top: 3px;
+    padding-right: 16px;
+    padding-top: 16px;
+    white-space: nowrap;
+}
+
+.option-value {
+    display: table-cell;
+    min-width: 80px;
+    text-align: center;
+}
+
+select {
+    box-shadow: none;
+    background-color: #f5f5f5;
+    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 16px;
+    height: 27px;
+    line-height: 27px;
+    min-width: 180px;
+    outline: 0;
+    padding: 0 8px;
+}
+
+#engine-set {
+    display: none;
+    cursor: pointer;
+    color: #227acd;
+    background: none;
+    font-size: 15px;
+}
+
+#panel-title {
+    text-align: center;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.engine-set-panel {
+    position: absolute;
+    left: 50%;
+    top: -20%;
+    display: none;
+    z-index: 10;
+    width: 350px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    background: white;
+}
+
+.engine-set-panel span {
+    margin: 10px;
+    padding: 10px;
+}
+
+.panel-btn-wrap {
+    text-align: center;
+    margin: 10px;
+}
+
+#panel-appId div, #panel-appSecret div {
+    display: inline-block;
+    width: 100px;
+    margin: 5px;
+}
+
+#panel-appId input, #panel-appSecret input {
+    width: 200px;
+    height: 25px;
+    border: 1px solid #ccc;
+}
+
+#panel-tips a {
+    margin: 5px;
+    text-decoration: none;
+    color: #3b93ff;
+}
+
+#msg-tips {
+    color: red;
+}
+
+.engine-set-panel .button {
+    display: inline;
+}
+
+.buttons {
+    clear: left;
+    padding: 2em 0 0.7em;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.buttons button {
+    background-color: #4d90fe;
+    background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+    background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+    background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+    background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+    border: 1px solid #3079ed;
+    color: #fff;
+    width: 100px;
+    height: 25px;
+}

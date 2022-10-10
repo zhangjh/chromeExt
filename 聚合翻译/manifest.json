@@ -29,5 +29,6 @@
       "css": ["page.css"],
       "js": ["jquery.min.js", "common.js", "content-script.js"]
     }
-  ]
+  ],
+  "options_page": "options.html"
 }
