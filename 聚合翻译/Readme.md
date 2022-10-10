@@ -13,7 +13,7 @@
 
 - 页面划线翻译
 
-  <img src="https://user-images.githubusercontent.com/3371714/194790407-c595fa0b-a9a9-4005-abc7-c3b064b7e612.jpg" width="500" />
+  <img src="https://user-images.githubusercontent.com/3371714/194797949-5ffabcaf-bc81-40d3-b660-3b66310d0f84.jpg" width="500" />
 - 右键菜单跳转网站翻译
   暂未单独制作承载落地页，仅引导跳转到百度翻译
   
