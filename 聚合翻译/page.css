@@ -23,12 +23,15 @@
 }
 
 .trans-content-wrap #lang-select {
-    max-width: unset;
+    text-align: center;
     appearance: auto;
-    width: 50px;
+    max-width: unset;
     height: 25px;
     margin: 0;
     padding: 0;
+    color: white;
+    border: none;
+    background: #1196db;
 }
 
 .trans-content-wrap .search-btn {
@@ -58,4 +61,8 @@
 
 .trans-content-wrap .origin-text, .trans-content-wrap .target-text {
     padding: 5px;
+}
+
+.trans-content-wrap .red {
+    color: red;
 }

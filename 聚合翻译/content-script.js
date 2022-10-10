@@ -28,9 +28,10 @@ function appendHtml(x, y) {
                 <div style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAUxJREFUOE+VlMFRwzAURPebBiBDC77TAU4F1AGcqCC4Ak6EOqggTgfc3UIGKsCfWcXSfDtftvBFk5HztH93Ldnse0XBUwm2p8e6W3pV/gMj6FexuxK0HtiFUcWgOFgVVtntR9940ARToOOJg+KuEnxxheIagh2h3pib9/6Ve9/PdVinyhStCu4FaKBog7IFGLcJ9GHnuV4AvM1HzQVws+8PojgSeOGZGTfrmfWSsDCA4ngBC4oGNHbEnGcRykCYrquMnlGhWT8ZylodV3vm1SQHFUpcOpHy3WIz7THp+H+Zx+uB57BcSMKesFuE/DzV2xIY66PAAxO06pIyAktgVHXuMpq5nwHGh30pgdnqVBW6UKPRuwRjENyIn4Yd13pGGD/yZLoZNcG4aW8D/o7XTITZEdNhJtUJzDaaKunjeJNMPq1sz9ZaHapTeBv/ASjX0vBkK5XAAAAAAElFTkSuQmCC
     ); width: 19px; height: 19px; " />
                 <div style="margin-left: 20px">
-                    <select id="lang-select" style="color: white; border: none; background: #1196db">
+                    <select id="lang-select">
+                        <option value="-1">选择引擎</option>
                         <option value="1">百度</option>
-                        <option value="2" selected>谷歌</option>
+                        <option value="2">谷歌</option>
                         <option value="3">Bing</option>
                         <option value="4">有道</option>
                     </select>
@@ -45,7 +46,11 @@ function appendHtml(x, y) {
     // $("#lang-select").on("change", function(e) {
     //     selectedTransCb(e.target.value, x, y);
     // });
-    $("#lang-select").on("click", function(e) {
+    $("#lang-select").on("change", function(e) {
+        const type = e.target.value;
+        if(type === "-1") {
+            return;
+        }
         selectedTransCb(e.target.value, x, y);
     });
     // 默认使用谷歌翻译，避免仅鼠标选中时并不需要翻译也自动翻译了，不自动调用
@@ -59,7 +64,7 @@ function selectedTransCb(type, x, y) {
     const selectionText = window.getSelection().toString().trim();
     translate(type, selectionText, null, null, function(ret) {
         if(ret.success) {
-            showTransContent(ret.data, x + 80, y);
+            showTransContent(ret.data, x + 100, y);
         }
     });
 }
@@ -121,9 +126,12 @@ function showTransContent(ret, x, y) {
         <div class="origin-text">${globalConfig.text}</div>
         <div class="target-lang">目标语种: ${globalConfig.targetLang}</div>
      `;
+    if(!ret) {
+        return;
+    }
     if(ret.explains && globalConfig.type === "4") {
         if(ret.phonetic) {
-            html += `<div class="target-text">音标: ${ret.phonetic}</div>`;
+            html += `<div class="target-text">音标: <span class="red">[${ret.phonetic}]</span></div>`;
         }
         for(let item of ret.explains) {
             html += `<div class="target-text">${item}</div>`;
