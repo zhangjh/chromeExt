@@ -23,16 +23,18 @@ let globalConfig = {};
 
 function appendHtml(x, y) {
     let transIconHtml = `
-        <div id="float-icon" style="top: ${y}px; left: ${x}px; position: absolute;">
-            <div style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAUxJREFUOE+VlMFRwzAURPebBiBDC77TAU4F1AGcqCC4Ak6EOqggTgfc3UIGKsCfWcXSfDtftvBFk5HztH93Ldnse0XBUwm2p8e6W3pV/gMj6FexuxK0HtiFUcWgOFgVVtntR9940ARToOOJg+KuEnxxheIagh2h3pib9/6Ve9/PdVinyhStCu4FaKBog7IFGLcJ9GHnuV4AvM1HzQVws+8PojgSeOGZGTfrmfWSsDCA4ngBC4oGNHbEnGcRykCYrquMnlGhWT8ZylodV3vm1SQHFUpcOpHy3WIz7THp+H+Zx+uB57BcSMKesFuE/DzV2xIY66PAAxO06pIyAktgVHXuMpq5nwHGh30pgdnqVBW6UKPRuwRjENyIn4Yd13pGGD/yZLoZNcG4aW8D/o7XTITZEdNhJtUJzDaaKunjeJNMPq1sz9ZaHapTeBv/ASjX0vBkK5XAAAAAAElFTkSuQmCC
-); width: 19px; height: 19px; " />
-            <div style="margin-left: 20px">
-                <select id="lang-select" style="color: white; border: none; background: #1196db">
-                    <option value="1">百度</option>
-                    <option value="2" selected>谷歌</option>
-                    <option value="3">Bing</option>
-                    <option value="4">有道</option>
-                </select>
+        <div class="trans-content-wrap">
+            <div id="float-icon" style="top: ${y}px; left: ${x}px; position: absolute;">
+                <div style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAUxJREFUOE+VlMFRwzAURPebBiBDC77TAU4F1AGcqCC4Ak6EOqggTgfc3UIGKsCfWcXSfDtftvBFk5HztH93Ldnse0XBUwm2p8e6W3pV/gMj6FexuxK0HtiFUcWgOFgVVtntR9940ARToOOJg+KuEnxxheIagh2h3pib9/6Ve9/PdVinyhStCu4FaKBog7IFGLcJ9GHnuV4AvM1HzQVws+8PojgSeOGZGTfrmfWSsDCA4ngBC4oGNHbEnGcRykCYrquMnlGhWT8ZylodV3vm1SQHFUpcOpHy3WIz7THp+H+Zx+uB57BcSMKesFuE/DzV2xIY66PAAxO06pIyAktgVHXuMpq5nwHGh30pgdnqVBW6UKPRuwRjENyIn4Yd13pGGD/yZLoZNcG4aW8D/o7XTITZEdNhJtUJzDaaKunjeJNMPq1sz9ZaHapTeBv/ASjX0vBkK5XAAAAAAElFTkSuQmCC
+    ); width: 19px; height: 19px; " />
+                <div style="margin-left: 20px">
+                    <select id="lang-select" style="color: white; border: none; background: #1196db">
+                        <option value="1">百度</option>
+                        <option value="2" selected>谷歌</option>
+                        <option value="3">Bing</option>
+                        <option value="4">有道</option>
+                    </select>
+                </div>
             </div>
         </div>
     `;

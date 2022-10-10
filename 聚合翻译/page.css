@@ -24,6 +24,7 @@
 
 .trans-content-wrap #lang-select {
     max-width: unset;
+    appearance: auto;
     width: 50px;
     height: 25px;
     margin: 0;
