@@ -8,8 +8,8 @@
 ## 功能使用演示
 - 点击扩展按钮主动翻译
 
-  <img src="https://user-images.githubusercontent.com/3371714/194790581-6f4aeda2-816e-438f-bcea-e0447c32ecc7.jpg" width="400" />
-  <img src="https://user-images.githubusercontent.com/3371714/194790371-4bdfa8f4-13db-4042-92e8-25a03cdba591.jpg" width="400" />
+  <img src="https://user-images.githubusercontent.com/3371714/194800001-f1c84c75-504b-4d23-b146-d56563362bfc.jpg" width="400" />
+  <img src="https://user-images.githubusercontent.com/3371714/194800018-2162466a-ee37-4afa-a8e3-87d024f2090f.jpg" width="400" />
 
 - 页面划线翻译
 
