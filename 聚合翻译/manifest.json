@@ -16,9 +16,6 @@
     "storage",
     "contextMenus"
   ],
-  "host_permissions": [
-    "*://*/"
-  ],
   "action": {
     "default_title": "聚合翻译",
     "default_icon": "imgs/icon_19.png",
