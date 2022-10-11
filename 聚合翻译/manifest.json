@@ -1,6 +1,6 @@
 {
   "name": "聚合翻译",
-  "version": "2.0",
+  "version": "4.0",
   "manifest_version": 3,
   "description": "多渠道聚合翻译",
   "icons": {
@@ -9,24 +9,24 @@
   },
   "background": {
     "type": "module",
-    "service_worker": "bg.js"
+    "service_worker": "js/bg.js"
   },
   "permissions": [
+    "contextMenus",
     "tabs",
-    "storage",
-    "contextMenus"
+    "storage"
   ],
   "action": {
     "default_title": "聚合翻译",
     "default_icon": "imgs/icon_19.png",
-    "default_popup": "popup.html"
+    "default_popup": "html/popup.html"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["page.css"],
-      "js": ["jquery.min.js", "common.js", "content-script.js"]
+      "css": ["css/page.css"],
+      "js": ["js/jquery.min.js", "js/common.js", "js/content-script.js"]
     }
   ],
-  "options_page": "options.html"
+  "options_page": "html/options.html"
 }
