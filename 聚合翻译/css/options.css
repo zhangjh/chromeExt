@@ -147,3 +147,12 @@ select {
     width: 100px;
     height: 25px;
 }
+
+#donate-wrap {
+    padding: 10px;
+
+    clear: left;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
