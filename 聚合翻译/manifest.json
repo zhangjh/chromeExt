@@ -13,6 +13,7 @@
   },
   "permissions": [
     "tabs",
+    "storage",
     "contextMenus"
   ],
   "host_permissions": [

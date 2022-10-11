@@ -92,14 +92,15 @@ function translate(type, text, from, to, cb) {
         }
     }
     url += "&to=" + to;
-    url = window.appendAppInfo(type, url);
     globalConfig = {
         type: type,
         text: text,
         originLang: isCharacter ? "中文" : "英文",
         targetLang: isCharacter ? "英文" : "中文"
     };
-    window.commonTranslate(url, cb);
+    window.commonTranslate(type, url, cb, function (err) {
+        alert(err);
+    });
 }
 
 function removeTip() {

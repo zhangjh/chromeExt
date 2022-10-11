@@ -60,32 +60,32 @@ window.initLangs = function() {
         // baidu
         $.ajax({
             url: "https://translate.favlink.cn/baidu/lang",
+            async: true,
             success: function(ret) {
-                console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.baidu", JSON.stringify(ret.data));
             }
         });
         // google
         $.ajax({
             url: "https://translate.favlink.cn/google/lang",
+            async: true,
             success: function(ret) {
-                console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.google", JSON.stringify(ret.data));
             }
         });
         // bing
         $.ajax({
             url: "https://translate.favlink.cn/bing/lang",
+            async: true,
             success: function(ret) {
-                console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.bing", JSON.stringify(ret.data));
             }
         });
         // youdao
         $.ajax({
             url: "https://translate.favlink.cn/youdao/lang",
+            async: true,
             success: function(ret) {
-                console.log(JSON.stringify(ret.data));
                 localStorage.setItem("langs.youdao", JSON.stringify(ret.data));
             }
         });
@@ -93,22 +93,34 @@ window.initLangs = function() {
 }
 
 // url, cb
-window.commonTranslate = function (url, cb) {
+window.commonTranslate = function (type, url, cb, fail) {
+    // 百度、有道读取各自应用信息
+    if(type === "1" || type === "4") {
+        const appIdKey = window.typeMapping(type) + "_appId";
+        const appSecretKey = window.typeMapping(type) + "_appSecret"
+        chrome.storage.local.get([appIdKey, appSecretKey], function (ret) {
+            const appId = ret[appIdKey];
+            const appSecret = ret[appSecretKey];
+            if(appId && appSecret) {
+                url += "&appId=" + appId + "&appSecret=" + appSecret;
+                window.get(url, cb, fail);
+                return;
+            }
+            fail("请先在选项页配置应用程序信息！");
+        });
+    } else {
+        window.get(url, cb, fail);
+    }
+}
+
+window.get = function (url, succCb, failCb) {
     $.ajax({
         url: url,
         success: function (ret) {
-            cb(ret);
+            succCb(ret);
+        },
+        fail: function (err) {
+            failCb(err);
         }
     });
-}
-
-// 拼接应用程序id
-window.appendAppInfo = function (type, url) {
-    const appId = localStorage.getItem(typeMapping(type) + "_appId");
-    const appSecret = localStorage.getItem(typeMapping(type) + "_appSecret");
-    if(appId && appSecret) {
-        url += "&appId=" + appId;
-        url += "&appSecret=" + appSecret;
-    }
-    return url;
 }

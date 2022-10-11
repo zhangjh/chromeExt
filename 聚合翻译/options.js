@@ -1,9 +1,18 @@
 let config = {};
 
 (function () {
-    setLangs("2");
+    let translateEngine = localStorage.getItem("translate_engine");
+    if(!translateEngine) {
+        translateEngine = $("#engine-options select").val();
+    }
+    if(translateEngine) {
+        setLangs(translateEngine);
+        fillValue(translateEngine);
+    }
+    config.type = translateEngine;
 
     $("#engine-options").on("change", function (e) {
+        config = {};
         $(".engine-set-panel").hide();
         const type = e.target.value;
         config.type = type;
@@ -47,12 +56,21 @@ let config = {};
 })();
 
 function fillValue(type) {
-    const appId = localStorage.getItem(window.typeMapping(type) + "_appId");
-    const appSecret = localStorage.getItem(window.typeMapping(type) + "_appSecret");
-    if(appId && appSecret) {
-        $("#panel-appId input").val(appId);
-        $("#panel-appSecret input").val(appSecret);
+    // 回填翻译引擎
+    const translateEngine = localStorage.getItem("translate_engine");
+    if(translateEngine) {
+        $("#engine-options select").val(translateEngine);
     }
+    const appIdKey = window.typeMapping(type) + "_appId";
+    const appSecretKey = window.typeMapping(type) + "_appSecret"
+    chrome.storage.local.get([appIdKey, appSecretKey], function (ret) {
+        const appId = ret[appIdKey];
+        const appSecret = ret[appSecretKey];
+        if(appId && appSecret) {
+            $("#panel-appId input").val(appId);
+            $("#panel-appSecret input").val(appSecret);
+        }
+    });
 }
 
 function setLangs(type) {
@@ -76,17 +94,27 @@ function setLangs(type) {
 
 function saveConfig() {
     console.log(config);
+    // 设置翻译引擎
+    localStorage.setItem("translate_engine", config.type);
+    // 设置主要语言
+    const mainLang = $("#lang-options select").val();
+    localStorage.setItem(window.typeMapping(config.type) + "_mainLang", mainLang);
+    // 设置应用程序信息
     if(config.type === "1" || config.type === "4") {
-        if(!config.appId || !config.appSecret) {
+        if(config.appId && config.appSecret) {
+            // 设置应用程序信息
+            // localStorage.setItem(window.typeMapping(config.type) + "_appId", config.appId);
+            // localStorage.setItem(window.typeMapping(config.type) + "_appSecret", config.appSecret);
+            const appInfo = {};
+            appInfo[window.typeMapping(config.type) + "_appId"] = config.appId;
+            appInfo[window.typeMapping(config.type) + "_appSecret"] = config.appSecret;
+            chrome.storage.local.set(appInfo, function() {
+                console.log(appInfo);
+            });
+        } else {
             $("#msg-tips").html(window.typeMapping(config.type) + "翻译需要配置！");
             return;
-        } else {
-            // 设置应用程序信息
-            localStorage.setItem(window.typeMapping(config.type) + "_appId", config.appId);
-            localStorage.setItem(window.typeMapping(config.type) + "_appSecret", config.appSecret);
         }
     }
-    // 设置主要语言
-    localStorage.setItem(window.typeMapping(config.type) + "_mainLang", $("#lang-options select").val());
     $("#msg-tips").html("保存成功！");
 }

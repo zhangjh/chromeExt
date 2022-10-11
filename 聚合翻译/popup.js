@@ -1,6 +1,11 @@
 (function () {
     window.initLangs();
 
+    const translateEngine = localStorage.getItem("translate_engine");
+    if(translateEngine) {
+        $("#search-bar select").val(translateEngine);
+    }
+
     let translateBtn = $("#translate-btn");
     translateBtn.on("click", function() {
         let text = $("#text-input").val().trim();
@@ -45,8 +50,7 @@ function translate(type, text, from, to) {
         }
     }
     url += "&to=" + to;
-    url = window.appendAppInfo(type, url);
-    window.commonTranslate(url, function(ret) {
+    window.commonTranslate(type, url, function(ret) {
         $("#search-bar").hide();
         $(".translate-content").show();
         const originLang = isCharacter ? "中文" : "英文";
@@ -77,5 +81,7 @@ function translate(type, text, from, to) {
             html += `<div class="target-text">${ret.data}</div>`;
         }
         $("#translation").html(html);
+    }, function (err) {
+        alert(err);
     });
 }
