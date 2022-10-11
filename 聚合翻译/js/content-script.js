@@ -118,6 +118,8 @@ function removeTransContent() {
 }
 
 function showTransContent(ret, x, y) {
+    // 先删除可能已存在的翻译结果面板，再重新渲染
+    $("#trans-content-panel").remove();
     let html = `
         <div class="origin-lang">源语种: ${globalConfig.originLang}</div>
         <div class="origin-text">${globalConfig.text}</div>
@@ -144,7 +146,7 @@ function showTransContent(ret, x, y) {
         html += `<div class="target-text">${ret}</div>`;
     }
     let transContentHtml = `
-        <div class="trans-content-wrap" style="top: ${y}px; left: ${x}px; position: absolute;
+        <div id="trans-content-panel" class="trans-content-wrap" style="top: ${y}px; left: ${x}px; position: absolute;
             background: white; z-index: 100;border: 0.5px solid lightgray";>
             <div class="translate-content"></div>
             <div id="translation">${html}</div>
