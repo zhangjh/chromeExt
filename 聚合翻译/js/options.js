@@ -7,12 +7,13 @@ let config = {};
     }
     if(translateEngine) {
         setLangs(translateEngine);
-        fillValue(translateEngine);
+        fillTranslateEngine(translateEngine);
     }
     config.type = translateEngine;
 
     $("#engine-options").on("change", function (e) {
         config = {};
+        clearAppInfo();
         $(".engine-set-panel").hide();
         const type = e.target.value;
         config.type = type;
@@ -36,7 +37,7 @@ let config = {};
 
     $("#engine-set").on("click", function () {
         $("#panel-title").text(window.typeMapping(config.type) + "配置");
-        fillValue(config.type);
+        fillAppInfo(config.type);
         $(".engine-set-panel").show();
     });
 
@@ -55,12 +56,15 @@ let config = {};
     });
 })();
 
-function fillValue(type) {
+function fillTranslateEngine(translateEngine) {
     // 回填翻译引擎
-    const translateEngine = localStorage.getItem("translate_engine");
     if(translateEngine) {
         $("#engine-options select").val(translateEngine);
     }
+}
+
+function fillAppInfo(type) {
+    // 回填应用程序信息
     const appIdKey = window.typeMapping(type) + "_appId";
     const appSecretKey = window.typeMapping(type) + "_appSecret"
     chrome.storage.local.get([appIdKey, appSecretKey], function (ret) {
@@ -71,6 +75,11 @@ function fillValue(type) {
             $("#panel-appSecret input").val(appSecret);
         }
     });
+}
+
+function clearAppInfo() {
+    $("#panel-appId input").val("");
+    $("#panel-appSecret input").val("");
 }
 
 function setLangs(type) {
