@@ -4,11 +4,13 @@
     $("body").on("mouseup", function(e) {
         setTimeout(function () {
             let selection = window.getSelection().toString().trim();
-            if(selection && selection.length < 250) {
-                if($("#float-icon").length === 0) {
-                    let x = e.pageX - 13;
-                    let y = e.pageY + 15;
-                    appendHtml(x, y);
+            if(selection) {
+                if(selection.length < 250) {
+                    if($("#float-icon").length === 0) {
+                        let x = e.pageX - 13;
+                        let y = e.pageY + 15;
+                        appendHtml(x, y);
+                    }
                 }
             } else {
                 if($(e.target).is($("#float-icon"))) {

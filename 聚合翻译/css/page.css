@@ -32,6 +32,7 @@
     color: white;
     border: none;
     background: #1196db;
+    border-radius: 6px;
 }
 
 .trans-content-wrap .search-btn {
