@@ -1,4 +1,4 @@
-## 聚合翻译
+## [聚合翻译](https://chrome.google.com/webstore/detail/%E8%81%9A%E5%90%88%E7%BF%BB%E8%AF%91/dojcmeeckecghjmochpgmppfefgkfian?hl=zh-CN)
 源于谷歌翻译正式退出中国，后续日常使用中对于翻译的需求，除了网站不能使用，chrome的谷歌翻译扩展也不能正常使用了。。
 
 正好自己还有台vps，日常除了搭建开源服务、科学上网之外，也没啥其他用途了，正好可以用来作为谷歌翻译的服务中转机器，于是有了这个项目。
