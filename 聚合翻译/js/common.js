@@ -38,6 +38,8 @@ window.typeMapping = function typeMapping(type) {
             return "bing";
         case "4":
             return "youdao";
+        case "5":
+            return "chatGpt";
     }
 }
 
@@ -108,9 +110,13 @@ window.commonTranslate = function (type, url, cb, fail) {
             }
             fail("请先在选项页配置应用程序信息！");
         });
-    } else {
-        window.get(url, cb, fail);
+        return;
+    } else if(type === "5") {
+        // chatGpt使用另外的接口
+        url.replace(url.substring(0, url.indexOf("?")), "https://translate.favlink.cn/chatGpt");
+        url += "&transMode=true";
     }
+    window.get(url, cb, fail);
 }
 
 window.get = function (url, succCb, failCb) {

@@ -38,6 +38,7 @@ function appendHtml(x, y) {
                         <option value="2">谷歌</option>
                         <option value="3">Bing</option>
                         <option value="4">有道</option>
+                        <option value="5">ChatGpt</option>
                     </select>
                 </div>
             </div>
