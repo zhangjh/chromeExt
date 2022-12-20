@@ -4,7 +4,7 @@
     margin: 10px;
     padding: 5px;
     min-width: 400px;
-    max-width: 500px;
+    max-width: 600px;
     min-height: 80px;
 }
 
@@ -14,6 +14,15 @@
 
 .trans-content-wrap .content {
     margin: 0 auto;
+}
+
+.trans-content-wrap .content select {
+    /*width: 50px;*/
+    height: 25px;
+}
+
+.trans-content-wrap .content option {
+    width: 50px;
 }
 
 .trans-content-wrap #text-input {
@@ -37,7 +46,7 @@
 
 .trans-content-wrap .search-btn {
     cursor: pointer;
-    width: 80px;
+    width: 60px;
     height: 25px;
     display: inline;
     color: white;
@@ -71,4 +80,13 @@
 #donate-wrap {
     margin: 10px 10px 0 0;
     padding: 10px;
+}
+
+#donate-wrap img {
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+#donate-wrap a {
+    vertical-align: middle;
 }
