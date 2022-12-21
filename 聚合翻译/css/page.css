@@ -70,6 +70,7 @@
 }
 
 .trans-content-wrap .origin-text, .trans-content-wrap .target-text {
+    color: black;
     padding: 5px;
 }
 
