@@ -12,7 +12,7 @@ chrome.runtime.onInstalled.addListener(function () {
         if (info.menuItemId === 'translateMenu') {
             //创建一个 标签页 url是：百度的翻译API 翻译内容是用户选中的内容
             chrome.tabs.create({
-                url: `https://fanyi.baidu.com/#lang-auto/lang-auto/${info.selectionText}`
+                url: `http://fanyi.baidu.com/#lang-auto/lang-auto/${info.selectionText}`
             })
         }
     })

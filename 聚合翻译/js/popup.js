@@ -28,7 +28,7 @@
 })();
 
 function translate(type, text, from, to) {
-    let url = "https://translate.favlink.cn/";
+    let url = "http://translate.zhangjh.cn:8888/";
     const typeName = window.typeMapping(type);
     url += typeName;
     url += "?text=" + encodeURIComponent(text);

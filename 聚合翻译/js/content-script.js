@@ -38,7 +38,8 @@ function appendHtml(x, y) {
                         <option value="2">谷歌</option>
                         <option value="3">Bing</option>
                         <option value="4">有道</option>
-                        <option value="5">ChatGpt</option>
+<!--                        <option value="5">ChatGpt</option>-->
+                        <<option value="5">gemini</option>
                     </select>
                 </div>
             </div>
@@ -75,7 +76,7 @@ function selectedTransCb(type, x, y) {
 }
 
 function translate(type, text, from, to, cb) {
-    let url = "https://translate.favlink.cn/";
+    let url = "http://translate.zhangjh.cn:8888/";
     const typeName = typeMapping(type);
     url += typeName;
     url += "?text=" + encodeURIComponent(text);

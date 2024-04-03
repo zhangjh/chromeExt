@@ -38,8 +38,10 @@ window.typeMapping = function typeMapping(type) {
             return "bing";
         case "4":
             return "youdao";
+        // case "5":
+        //     return "chatGpt";
         case "5":
-            return "chatGpt";
+            return "gemini";
     }
 }
 
@@ -61,7 +63,7 @@ window.initLangs = function() {
         // 获取语种列表存入本地缓存
         // baidu
         $.ajax({
-            url: "https://translate.favlink.cn/baidu/lang",
+            url: "http://translate.zhangjh.cn:8888/baidu/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.baidu", JSON.stringify(ret.data));
@@ -69,7 +71,7 @@ window.initLangs = function() {
         });
         // google
         $.ajax({
-            url: "https://translate.favlink.cn/google/lang",
+            url: "http://translate.zhangjh.cn:8888/google/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.google", JSON.stringify(ret.data));
@@ -77,7 +79,7 @@ window.initLangs = function() {
         });
         // bing
         $.ajax({
-            url: "https://translate.favlink.cn/bing/lang",
+            url: "http://translate.zhangjh.cn:8888/bing/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.bing", JSON.stringify(ret.data));
@@ -85,7 +87,7 @@ window.initLangs = function() {
         });
         // youdao
         $.ajax({
-            url: "https://translate.favlink.cn/youdao/lang",
+            url: "http://translate.zhangjh.cn:8888/youdao/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.youdao", JSON.stringify(ret.data));
@@ -111,10 +113,18 @@ window.commonTranslate = function (type, url, cb, fail) {
             fail("请先在选项页配置应用程序信息！");
         });
         return;
-    } else if(type === "5") {
-        // chatGpt使用另外的接口
-        url.replace(url.substring(0, url.indexOf("?")), "https://translate.favlink.cn/chatGpt");
-        url += "&transMode=true";
+    }
+    // else if(type === "5") {
+    //     // chatGpt使用另外的接口
+    //     url.replace(url.substring(0, url.indexOf("?")), "http://translate.zhangjh.cn:8888/chatGpt");
+    //     url += "&transMode=true";
+    // }
+    else if(type === "5") {
+        url.replace(url.substring(0, url.indexOf("?")), "http://translate.zhangjh.cn:8888/gemini")
+        url = new URL(url);
+        const params = new URLSearchParams(url.search);
+        window.post(url.origin + url.pathname, {text: params.get("text")} , cb, fail);
+        return;
     }
     window.get(url, cb, fail);
 }
@@ -129,4 +139,19 @@ window.get = function (url, succCb, failCb) {
             failCb(err);
         }
     });
+}
+
+window.post = function (url, body, succCb, failCb) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: JSON.stringify(body),
+        contentType: "application/json",
+        success: function (ret) {
+            succCb(ret);
+        },
+        fail: function (err) {
+            failCb(err);
+        }
+    })
 }
