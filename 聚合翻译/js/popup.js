@@ -8,15 +8,11 @@
 
     let translateBtn = $("#translate-btn");
     translateBtn.on("click", function() {
-        let text = $("#text-input").val().trim();
-        console.log(text);
-        let type = $("select").val();
-        if(text && type) {
-            const from = window.isCharacter(text) ? "zh" : "en";
-            const to = from === "zh" ? "en" : "zh";
-            // 请求翻译接口
-            translate(type, text, from, to);
-        }
+        doAction();
+    });
+
+    document.addEventListener("keydown", function (e) {
+        doAction();
     });
 
 //    let translatePageBtn = $("#translate-page");
@@ -86,4 +82,16 @@ function translate(type, text, from, to) {
     }, function (err) {
         alert(err);
     });
+}
+
+function doAction() {
+    let text = $("#text-input").val().trim();
+    console.log(text);
+    let type = $("select").val();
+    if(text && type) {
+        const from = window.isCharacter(text) ? "zh" : "en";
+        const to = from === "zh" ? "en" : "zh";
+        // 请求翻译接口
+        translate(type, text, from, to);
+    }
 }
