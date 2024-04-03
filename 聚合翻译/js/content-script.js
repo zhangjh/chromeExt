@@ -76,7 +76,7 @@ function selectedTransCb(type, x, y) {
 }
 
 function translate(type, text, from, to, cb) {
-    let url = "http://translate.zhangjh.cn:8888/";
+    let url = "https://translate.zhangjh.cn/";
     const typeName = typeMapping(type);
     url += typeName;
     url += "?text=" + encodeURIComponent(text);

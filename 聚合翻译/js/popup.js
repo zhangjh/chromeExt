@@ -12,8 +12,10 @@
         console.log(text);
         let type = $("select").val();
         if(text && type) {
+            const from = window.isCharacter(text) ? "zh" : "en";
+            const to = from === "zh" ? "en" : "zh";
             // 请求翻译接口
-            translate(type, text, undefined, undefined);
+            translate(type, text, from, to);
         }
     });
 
@@ -28,7 +30,7 @@
 })();
 
 function translate(type, text, from, to) {
-    let url = "http://translate.zhangjh.cn:8888/";
+    let url = "https://translate.zhangjh.cn/";
     const typeName = window.typeMapping(type);
     url += typeName;
     url += "?text=" + encodeURIComponent(text);

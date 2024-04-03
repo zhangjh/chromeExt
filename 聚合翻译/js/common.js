@@ -63,7 +63,7 @@ window.initLangs = function() {
         // 获取语种列表存入本地缓存
         // baidu
         $.ajax({
-            url: "http://translate.zhangjh.cn:8888/baidu/lang",
+            url: "https://translate.zhangjh.cn/baidu/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.baidu", JSON.stringify(ret.data));
@@ -71,7 +71,7 @@ window.initLangs = function() {
         });
         // google
         $.ajax({
-            url: "http://translate.zhangjh.cn:8888/google/lang",
+            url: "https://translate.zhangjh.cn/google/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.google", JSON.stringify(ret.data));
@@ -79,7 +79,7 @@ window.initLangs = function() {
         });
         // bing
         $.ajax({
-            url: "http://translate.zhangjh.cn:8888/bing/lang",
+            url: "https://translate.zhangjh.cn/bing/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.bing", JSON.stringify(ret.data));
@@ -87,7 +87,7 @@ window.initLangs = function() {
         });
         // youdao
         $.ajax({
-            url: "http://translate.zhangjh.cn:8888/youdao/lang",
+            url: "https://translate.zhangjh.cn/youdao/lang",
             async: true,
             success: function(ret) {
                 localStorage.setItem("langs.youdao", JSON.stringify(ret.data));
@@ -116,14 +116,18 @@ window.commonTranslate = function (type, url, cb, fail) {
     }
     // else if(type === "5") {
     //     // chatGpt使用另外的接口
-    //     url.replace(url.substring(0, url.indexOf("?")), "http://translate.zhangjh.cn:8888/chatGpt");
+    //     url.replace(url.substring(0, url.indexOf("?")), "https://translate.zhangjh.cn/chatGpt");
     //     url += "&transMode=true";
     // }
     else if(type === "5") {
-        url.replace(url.substring(0, url.indexOf("?")), "http://translate.zhangjh.cn:8888/gemini")
+        url.replace(url.substring(0, url.indexOf("?")), "https://translate.zhangjh.cn/gemini")
         url = new URL(url);
         const params = new URLSearchParams(url.search);
-        window.post(url.origin + url.pathname, {text: params.get("text")} , cb, fail);
+        window.post(url.origin + url.pathname,
+            {
+                text: params.get("text"),
+                from: params.get("from"),
+                to: params.get("to")} , cb, fail);
         return;
     }
     window.get(url, cb, fail);
