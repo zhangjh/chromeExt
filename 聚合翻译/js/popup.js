@@ -12,7 +12,9 @@
     });
 
     document.addEventListener("keydown", function (e) {
-        doAction();
+        if(e.key === "Enter") {
+            doAction();
+        }
     });
 
 //    let translatePageBtn = $("#translate-page");
